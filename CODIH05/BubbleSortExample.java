@@ -1,5 +1,5 @@
 public class BubbleSortExample {
-    static void bubbleSort(int[] Liste) {
+    static void bubbleSortonlyforInteger(int[] Liste) {
 
         int n = Liste.length;
 
