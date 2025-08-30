@@ -1,0 +1,243 @@
+Arbeiten mit Eingabeaufforderung
+
+- ausgewählten Ordner aufrufen:
+
+cd "Desktop\GIT\scm\tom"
+
+- Inhalt des Ordners prüfen:
+
+dir
+
+- Kopieren aus einem anderen Ordner (befinden sich im gleichen Oberordner)
+
+copy "..\..\einfach\*.*"
+
+- ertsmaliger Download eines existierenden Git Repository
+
+git clone 
+
+- Dateien werden als Staging deklariert (vorbereiten für das versionieren), Dateien zur Staging Area hinzufügen, damit sie in das nächste Commit miteingeschlossen werde
+
+git add .
+
+-  eine benamte Version anlegen; aus alllen staged Dateien wird eine neue Version erstellt -m erwartet den Kommentar
+
+git commit -m "Projekt Text beschrieben"
+
+- Version in das RemoteRepository schieben; Daten zum Remote Repository schicken 
+
+git push
+
+- eine Ordnerebne zurück (höher) gehen
+
+cd ..
+
+- neues Remote Repository hinzufügen:
+
+git add remote
+
+lokales Repository erstellen: (voraussetztung: in dem ausgewählten ordner befinden)
+
+git init
+
+git add .
+
+git commit -m "Projekt erstellt"
+
+(jetzt ist das Projekt auch ein Repository (.git Datei ist vorhanden))
+
+- Repository inspizieren: Staus von Dateien anzeigen & Commit Verlauf
+
+git status -s 
+
+git log
+
+- Dateien in einem Repository immer mit Git bewegen (über git- Kommandos
+
+git mv Meeting.txt Organisation\Meeting.txt
+
+- neuen Ordner anlegen mit
+
+mkdir Ordnername
+
+- Das lokale Repository aktuelisieren: Fetch mit anschließendem Merge
+
+git pull 
+
+- neue Textdatei im Ordner erstellen
+
+echo Erste Ideen > Ideas\brainstorm.txt 
+
+- neue Informationen aus dem Remote-Repository holen/ nichts ändern: lokales Repository mit Änderungen vom Remote aktualisieren
+
+git fetch
+
+- anzeigen aller Branches (deutsch Zweige) Git hat immer einen main-Branch also einen Vaterknoten, von diesem kann man neue Branches abzweigen
+
+git branch
+
+- neunen Branch erzeugen (ein Branch ermöglicht das arbeiten in einem geschützten Raum (z.B. für das ausprobieren von Konzepten)
+
+git branch Name
+
+- ändern des Workind Directory man erhält nun physisch lokal die Dateien des Branches
+
+git checkout Name
+
+- Branch ins Remote-Repository übertragen
+
+git push --set-upstream origin NamevonBranch
+
+- Änderungen verschiedener Branches zusammenführen; neuen Branch ins Remote Repository übertragen (ertsmal wieder mit git checkout in main wechseln)
+
+git merge NamevonBranch
+
+- Branch löschen lokal:
+
+git branch -d NamevonBranch
+
+- Branch auf RemoteRepository löschen: Fehlermeldung wenn der zu löschende Branch noch nicht gemerged wurde, um trozdem zu löschen mit -D
+
+git push origin -d NamevonBranch
+
+- Fehlermeldung Git kennt den Nutzer nicht: Behebung mit 
+
+git config user.name "Your Name"
+
+git config user.email "youremail@yourdomain.com"
+
+- Hilfe über Kommandoeingabe:
+
+git help
+
+- Wer sehr viel mit Git über die Kommandozeile arbeitet, sollte Farbunterschiede für Branches aktivieren
+
+git config color.ui true
+
+git config color.status auto
+
+git config color.branch auto
+
+- aktuelle Änderungen beiseite legen und Arbeitsbaum sauber machen: 
+
+git stash
+
+- aktuelle Änderungen mit Nachricht sichern: 
+
+git stash push -m "Nachricht"
+
+- gespeicherte Stashes auflisten: 
+
+git stash list
+
+- Änderungen des letzten Stash in Kurzform anzeigen: 
+
+git stash show
+
+- letzten Stash wieder anwenden (in Liste behalten): 
+
+git stash apply
+
+- bestimmten Stash anwenden: 
+
+git stash apply stash@{n}
+
+- letzten Stash anwenden und aus Liste entfernen: 
+
+git stash pop
+
+- bestimmten Stash anwenden und aus Liste entfernen: 
+
+git stash pop stash@{n}
+
+- letzten Stash aus Liste löschen: 
+
+git stash drop
+
+- bestimmten Stash aus Liste löschen: 
+
+git stash drop stash@{n}
+
+- alle Stashes löschen: 
+
+git stash clear
+
+- neuen Branch aus einem Stash erstellen: 
+
+git stash branch <branchname>
+
+- Git wandelt mit dem Befehl Zeilenenden automatisch zwischen Windows(CLRF) und Unix(LF) um
+
+git config --global core.autocrlf true
+
+
+Git Hooks:
+
+sind kleine Skripte die automatisch bei bestimmten Git Ereignissen ausgeführt werden 
+
+sie dienen dabei der Qualitätssicherung: verhinderung fehlerhater commits oder Code, der den standards nicht entspricht
+
+sind automatisiert, alle Entwickler nutzen lokal die gleichen Regeln
+
+Pre-commit -> wird ausgeführt bevor ein Commit erstellt wird
+pre-push -> wird vor dem Pushen ins Remote-Repository ausgeführt
+post-merge -> wird nach einem Merge ausgeführt
+
+Git Tags:
+
+sind festgelatene Zeiger auf einen bestimmten Commit (bei Versionen, sind im REpository einmalig)
+
+Tags sind organisatorisch und praktisch, weil sie Releases und Meilensteine sichtbar machen und jederzeit abrufbar halten. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
