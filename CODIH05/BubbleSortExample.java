@@ -1,7 +1,8 @@
 public class BubbleSortExample {
-    static void bubbleSort(int[] arr) {
+    static void bubbleSort(int[] Liste) {
 
-        int n = arr.length;
+        int n = Liste.length;
+
         int temp = 0;
         boolean getauscht;
 
@@ -9,14 +10,17 @@ public class BubbleSortExample {
              getauscht= false;
 
             for(int j=1; j < (n-i); j++){
-                if(arr[j-1] > arr[j]){
-                 //swap elements
 
-                    temp = arr[j-1];
+                if(Liste[j-1] > Liste[j]){
 
-                    arr[j-1] = arr[j];
+//swap elements
 
-                    arr[j] = temp;
+                    temp = Liste[j-1];
+
+                    Liste[j-1] = Liste[j];
+
+                    Liste[j] = temp;
+
                     getauscht=true;
                     }
                 }
